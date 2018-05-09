@@ -43,7 +43,7 @@ public class GlobeSortClient {
         long ping_start = System.currentTimeMillis();
         serverStub.ping(Empty.newBuilder().build());
         long ping_end = System.currentTimeMillis();
-        System.out.print(ping_end - ping_start);
+        System.out.print((ping_end - ping_start) / 2);
         System.out.println("  Ping successful.");
 
         System.out.println("Requesting server to sort array");
@@ -53,7 +53,10 @@ public class GlobeSortClient {
         long client_request_end = System.currentTimeMillis();
 
         long sortTime = response.getSortTime();
+        double bytePerSec_app = values.length / ((client_request_end - client_request_start) * 0.5) * 4000;
         double bytePerSec = values.length / ((client_request_end - client_request_start - sortTime) * 0.5) * 4000;
+        System.out.print("bytePerSec_application level = ");
+        System.out.println(bytePerSec_app);
         System.out.print("bytePerSec = ");
         System.out.println(bytePerSec);
     }
