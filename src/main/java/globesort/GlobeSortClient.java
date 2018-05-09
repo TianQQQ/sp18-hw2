@@ -50,12 +50,9 @@ public class GlobeSortClient {
         long client_request_end = System.currentTimeMillis();
 
         long sortTime = response.getSortTime();
-        System.out.println(sortTime);
-        System.out.println(client_request_end - client_request_start);
-        System.out.println(client_request_end - client_request_start - sortTime);
-
-
-        System.out.println("Sorted array");
+        long bytePerSec = (client_request_end - client_request_start - sortTime) * 0.5 * 4;
+        System.out.println("bytePerSec = ");
+        System.out.print(bytePerSec);
     }
 
     public void shutdown() throws InterruptedException {
