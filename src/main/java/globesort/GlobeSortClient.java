@@ -50,7 +50,7 @@ public class GlobeSortClient {
         long client_request_end = System.currentTimeMillis();
 
         long sortTime = response.getSortTime();
-        double bytePerSec = values.length / ((client_request_end - client_request_start - sortTime) * 0.5) * 4;
+        double bytePerSec = values.length / ((client_request_end - client_request_start - sortTime) * 0.5) * 4000;
         System.out.print("bytePerSec = ");
         System.out.println(bytePerSec);
     }
