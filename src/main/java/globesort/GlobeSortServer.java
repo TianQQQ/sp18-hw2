@@ -94,9 +94,8 @@ public class GlobeSortServer {
             long end = System.currentTimeMillis();
 
             System.out.println(end - start);
-            
+
             IntArray.Builder responseBuilder = IntArray.newBuilder();
-            responseBuilder.addValues(end - start);
             for(Integer val : values) {
                 responseBuilder.addValues(val);
             }
