@@ -89,9 +89,11 @@ public class GlobeSortServer {
             Integer[] values = req.getValuesList().toArray(new Integer[req.getValuesList().size()]);
 
             // use grpc to track time
-            int64 start = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
             Arrays.sort(values);
-            int64 end = System.currentTimeMillis();
+            long end = System.currentTimeMillis();
+
+            System.out.println(end - start);
 
             IntArray.Builder responseBuilder = IntArray.newBuilder();
             for(Integer val : values) {
